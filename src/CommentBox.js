@@ -5,7 +5,7 @@ import CommentForm from './CommentForm';
 import DATA from './data/data';
 import style from './style';
 
-class CommentBox extends React.Component {
+class CommentBox extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [] }

@@ -11,13 +11,15 @@
     "mongoose": "^4.11.7",
     "nodemon": "^1.11.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "react-scripts": "1.0.11"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-dev": "nf start -p 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

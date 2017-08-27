@@ -35,6 +35,13 @@ class CommentForm extends Component {
         onChange={ this.handleAuthorChange } />
 
       <input
+        type='text'
+        placeholder='Your message'
+        style={ style.commentFormList }
+        value={ this.state.text }
+        onChange={ this.handleTextChange } />
+
+      <input
         type='submit'
         style={ style.commentFormPost }
         value='Post' />

@@ -1,5 +1,11 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# api keys
+/.*api
+
+# garbage api file
+old_api.js
+
 # dependencies
 /node_modules
 

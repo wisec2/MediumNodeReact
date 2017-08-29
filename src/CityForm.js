@@ -5,23 +5,23 @@ import style from './style';
 class CommentForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { author: '', text: '' }
-    this.handleAuthorChange = this.handleAuthorChange.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
+    this.state = { city: '', dist: '' }
+    this.handleCityChange = this.handleCityChange.bind(this);
+    this.handleDistanceChange = this.handleDistanceChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleAuthorChange(e) {
-    this.setState({ author: e.target.value });
+  handleCityChange(e) {
+    this.setState({ city: e.target.value });
   }
 
-  handleTextChange(e) {
-    this.setState({ text: e.target.value });
+  handleDistanceChange(e) {
+    this.setState({ dist: e.target.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(`${this.state.author} said "${this.state.text}"`);
+    console.log(`${this.state.city} said "${this.state.dist}"`);
   }
 
   render() {
@@ -29,22 +29,22 @@ class CommentForm extends Component {
       <form style={ style.commentForm } onSubmit={ this.handleSubmit }>
       <input
         type='text'
-        placeholder='Your name'
+        placeholder='City'
         style={ style.commentFormAuthor }
-        value={ this.state.author }
-        onChange={ this.handleAuthorChange } />
+        value={ this.state.city }
+        onChange={ this.handleCityChange } />
 
       <input
         type='text'
-        placeholder='Your message'
+        placeholder='Distance (mi)'
         style={ style.commentFormList }
-        value={ this.state.text }
-        onChange={ this.handleTextChange } />
+        value={ this.state.dist }
+        onChange={ this.handleDistanceChange } />
 
       <input
         type='submit'
         style={ style.commentFormPost }
-        value='Post' />
+        value='Search' />
       </form>
     )
   }

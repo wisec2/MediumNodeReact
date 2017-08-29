@@ -1,9 +1,17 @@
-// Comment.js
+// City.js
 import React, { Component } from 'react';
 import style from './style';
 import marked from 'marked';
 
-class Comment extends Component {
+class City extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: props.name,
+      zavg: props.zavg
+    };
+  }
+
   rawMarkup() {
     let rawMarkup = marked(this.props.children.toString());
     return { __html: rawMarkup };
@@ -11,7 +19,7 @@ class Comment extends Component {
 
   render() {
     return(
-      <div style={ style.comment }>
+      <div style={ style.commet }>
         <h3>{ this.props.author }</h3>
         <span dangerouslySetInnerHTML={ this.rawMarkup() } />
       </div> 
@@ -19,4 +27,4 @@ class Comment extends Component {
   }
 }
 
-export default Comment;
+export default City;

@@ -7,10 +7,6 @@ class CityList extends Component {
   render() {
     let cityNodes = this.props.data.map(city => {
       return (
-        // <Comment author={ comment.author } key={ comment.id }>
-          // { comment.text }
-        // </Comment>
-
         <City name={ city.name } zavg={ city.zavg }>
           { city.name }
         </City>

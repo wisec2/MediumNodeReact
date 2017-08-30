@@ -5,11 +5,16 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var api = require('./api');
+var geolib = require('geolib');
 
 var app = express();
 var router = express.Router();
 
 var port = process.env.API_PORT || 3001;
+
+let _Z_API_KEY = api.getZillowApiKey();
+let _GM_API_KEY = api.getGoogleMapsApiKey();
+let _GG_API_KEY = api.getGoogleGeoApiKey();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -29,8 +34,8 @@ app.use(function(req, res, next) {
 
 router.get('/', function(req, res) {
   // console.log("HELLO");
-  // res.json({ message: 'API initialized!' });
-  res.json({ message: api.getZillowApiKey() })
+  res.json({ message: 'API initialized!' });
+  // res.json({ message: api.getZillowApiKey() })
 });
 
 router.route('/lookup').get(function(req, res) {
@@ -38,15 +43,17 @@ router.route('/lookup').get(function(req, res) {
 
   if(!req.body) console.log("No body");
 
-  var city = req.body["city"];
-  var dist = req.body["dist"];
+  // var city = req.body["city"];
+  // var dist = req.body["dist"];
+  var city = 'Boston';
+  var dist = 20;
 
   // Default accepted distance to 20 miles away from
   // target city
   if(!dist)
     dist = 20;
 
-  console.log("dist = " + dist);
+  // console.log("dist = " + dist);
 
   return(api.getLatLong(_GG_API_KEY, city).then(function(locResponse) {
     // console.log(JSON.stringify(locResponse));
